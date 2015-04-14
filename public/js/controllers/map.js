@@ -9,7 +9,8 @@ bagsInTreesControllers.controller('mapController', function ($scope, $http, $q, 
     {
       height: 22,
       url: "../../img/clusterIcon-01-blue.png",
-      width: 22
+      width: 22,
+      opacity: 0.8
     },
     {
       height: 30,
@@ -64,11 +65,11 @@ bagsInTreesControllers.controller('mapController', function ($scope, $http, $q, 
         });
       } else { //geolocation IS NOT available
           //setGeoLoc(42.3581, -71.0636, 4); // Boston
-          var zoomLevel = 3;
+          var zoomLevel = 8;
           if (isMobileClient()) {
-            zoomLevel = 2;
+            zoomLevel = 8;
           }
-          setGeoLoc(20.3034, -34.6289, zoomLevel); //Lebanon, KS
+          setGeoLoc(37.6485295,-121.9488189, zoomLevel); //Lebanon, KS
           deferred.resolve();
       }
     }
@@ -102,9 +103,35 @@ bagsInTreesControllers.controller('mapController', function ($scope, $http, $q, 
     });
     return marker;
   };
+  var _range = "0";
+  var _filter = "all";
+  window.setLitterFilter = function(filter) {
+    document.getElementById("dropdown_filter").textContent = "Filter: " + filter;
+    $scope.mc.clearMarkers()
+    _filter = filter.toLowerCase();
+    $scope.getAllBags();
+  };
+
+  window.setLitterSince = function(range) {
+    document.getElementById("dropdown_range").textContent = "Since: " + range;
+    $scope.mc.clearMarkers()
+    _range = "0";
+    if (range == 'Last Hour') {
+      _range = 3600;
+    } else if (range == 'Last Day') {
+      _range = 3600 * 24;
+    } else if (range == 'Last Week') {
+      _range = 3600 * 24 * 7;
+    } else if (range == 'Last Month') {
+      _range = 3600 * 24 * 31;
+    }
+    $scope.getAllBags();
+  };
 
   $scope.getAllBags = function () {
-    bagService.fetchData('/bags/map', function (data) {
+    var url = 
+    bagService.fetchData('/bags/map?filter=' + _filter + "&since=" + _range, function (sd) {
+      var data = sd.results;
       $scope.bags = data;
       var markers = [];
       for (var i = 0; i < data.length; i++) {
@@ -114,7 +141,11 @@ bagsInTreesControllers.controller('mapController', function ($scope, $http, $q, 
         });
         markers.push(marker);
       }
+      document.getElementById("impact").textContent = "Impact: " + sd.count;
+      document.getElementById("impact-mobile").textContent = "Impact: " + sd.count;
       var mc = new MarkerClusterer($scope.globalMap, markers, {minimumClusterSize: 10, styles: styles});
+      mc.setMaxZoom(20)
+      $scope.mc = mc
     });
   };
 

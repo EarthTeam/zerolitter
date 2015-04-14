@@ -15,7 +15,8 @@
                 </div>
 
                 <div class="font-medium muted">
-                    <em>bag tagged by: <a href="/#/user/{{bag.photo.userId}}">{{bag.photo.userName}}</a></em><br/>
+                    <br>
+                    <em>litter tagged by: <a href="/#/user/{{bag.photo.userId}}">{{bag.photo.userName}}</a></em><br/>
                     {{formatInstagramDate(bag.photo.created)}}
                     <span ng-if="bag.photo.locationName"><br/>{{bag.photo.locationName}}</span>
                     <div ng-repeat="comment in bag.comments">

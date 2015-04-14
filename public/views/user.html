@@ -7,7 +7,7 @@
                 </div>
                 <div>
                     <div class="h7">{{user.name}}</div>
-                    <div class="font-medium-large"># of Bags Tagged: {{user.tagCount}}</div>
+                    <div class="font-medium-large">pieces of litter tagged: {{user.tagCount}}</div>
                     <br/><a href="javascript: window.history.back();"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
             </div>
@@ -16,8 +16,6 @@
              <span ng-repeat="bag in userBags" on-finish-render="ngRepeatFinished">
                 <span>
                     <nobr>
-                        <img src="../img/removed-check-30.png" ng-if="bag.isRemoved" class="removed-check" data-toggle="tooltip" title="This bag has been removed!">
-                        <img src="../img/no-geo-tag-icon-30.png" ng-if="!bag.latitude" class="removed-check" data-toggle="tooltip" title="This image was not geo-tagged">
                         <a href="/#/full/{{bag.id}}"><img ng-src="{{bag.lowResUrl}}" class="bordered-img user-photo-img" style="vertical-align: inherit;" onError="this.onerror=null;this.src='../img/not-found.png'"></a>
                     </nobr>
                 </span>

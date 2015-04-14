@@ -3,7 +3,8 @@ angular.module('bagsInTrees',
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl : 'views/main.html'
+        templateUrl : 'views/map.html',
+        controller  : 'mapController'
       })
       .when('/about', {
         templateUrl : 'views/about.html'

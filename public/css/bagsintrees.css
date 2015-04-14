@@ -116,7 +116,7 @@ table {
   height: 100%;
 }
 #map-canvas {
-  height: calc(100% - 70px);
+  height: calc(100% - 40px);
   width: 100%;
   position: absolute;
 }
@@ -137,7 +137,8 @@ table {
   margin: 4px;
 }
 .map-detail-image {
-  width: 100%;
+  width: 280px;
+  height: 280px;
 }
 #sticky-header {
   width: 100%;
@@ -193,7 +194,6 @@ table {
   color: #297a4c;
 }
 .navigation {
-  margin-top: 38px;
   color: #3c3c3c;
 }
 .navigation a {
@@ -209,12 +209,10 @@ table {
   color: #3c3c3c;
 }
 .navLinkName {
-  padding: 2px 10px 2px 10px;
-  border-radius: 10px;
+  padding: 2px 20px 2px 20px;
 }
 .navlinkName:hover {
-  background-color: #297a4c;
-  color: #ffffff;
+  text-decoration: underline;
 }
 .navItemInner {
   padding: 6px;
@@ -398,7 +396,7 @@ table {
   height: 70px;
 }
 #sticky-header {
-  height: 70px;
+  height: 40px;
   padding-bottom: 8px;
 }
 .site-logo {
@@ -421,7 +419,7 @@ table {
   font-weight: 700;
 }
 #index-container {
-  margin-top: 70px;
+  margin-top: 40px;
 }
 .page-main {
   padding: 160px 0 0 0;
@@ -448,10 +446,12 @@ table {
   max-width: 150px;
 }
 .user-photo-img {
-  max-width: 150px;
+  width: 150px;
+  height: 150px;
 }
 .full-size-img {
-  max-width: 640px;
+  width: 640px;
+  height: 640px;
 }
 .full-size-img-flex {
   -webkit-box-flex: 0 0 650px;
@@ -511,13 +511,13 @@ table {
 }
 .page-next {
   font-size: 1.3em;
-  height: calc(100% - 70px);
+  height: calc(100% - 40px);
   text-align: left;
   background-color: #ffffff;
   padding: 40px 5% 80px 5%;
 }
 #page-next-2 {
-  height: calc(100% - 70px);
+  height: calc(100% - 40px);
   text-align: center;
   padding: 60px 5% 60px 5%;
   background-image: url('../img/bag-tree-4-lg.jpg');
@@ -536,7 +536,7 @@ table {
   border-radius: 50px;
 }
 #page-next-3 {
-  height: calc(100% - 70px);
+  height: calc(100% - 40px);
   background-image: url('../img/city-silhouette-1400.png');
   background-repeat: no-repeat;
   background-repeat-x: initial;
@@ -549,7 +549,7 @@ table {
   padding: 15px 5% 15px 5%;
 }
 #page-next-4 {
-  height: calc(100% - 70px);
+  height: calc(100% - 40px);
   background-image: url('../img/bag-tree-3-lg.jpg');
   background-repeat: no-repeat;
   background-size: cover;

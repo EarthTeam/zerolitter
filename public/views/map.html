@@ -5,8 +5,9 @@
             <img src="{{mapDetail.photo.lowResUrl}}" class="map-detail-image" ng-show="mapDetail" onError="this.src='../img/not-found-large.png'">
             <img src="img/loading.gif" class="map-detail-image" ng-hide="mapDetail">
             <span ng-show="mapDetail">
+                <br>
                 <div class="font-medium">{{mapDetail.photo.caption}}</div>
-                <div class="font-small muted"><em>bag tagged by: <a href="/#/user/{{mapDetail.photo.userId}}">{{mapDetail.photo.userName}}</a></em><br/>
+                <div class="font-small muted"><em>litter tagged by: <a href="/#/user/{{mapDetail.photo.userId}}">{{mapDetail.photo.userName}}</a></em><br/>
                     {{formatInstagramDate(mapDetail.photo.created)}}
                     <span ng-if="mapDetail.photo.locationName"><br/>{{mapDetail.photo.locationName}}</span>
                     <div ng-repeat="comment in mapDetail.comments">
@@ -16,9 +17,41 @@
                 </div>
             </span>
             <span ng-hide="mapDetail">
-                <em>Loading bag details...</em>
+                <em>Loading litter details...</em>
             </span>
         </div>
+    </div>
+    <!-- Single button -->
+    <div class="btn-group pull-left" style="margin-left: 90px; margin-top: 25px;">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <span id="dropdown_filter">Filter: All</span> <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="javascript:window.setLitterFilter('All');">All</a></li>
+        <li class="divider"></li>
+        <li><a href="javascript:window.setLitterFilter('Paper');">Paper</a></li>
+        <li><a href="javascript:window.setLitterFilter('Plastic');">Plastic</a></li>
+        <li><a href="javascript:window.setLitterFilter('Cigarettes');">Cigarettes</a></li>
+        <li><a href="javascript:window.setLitterFilter('Wrappers');">Wrappers</a></li>
+        <li class="divider"></li>
+        <li><a href="javascript:window.setLitterFilter('Cheetos');">Cheetos</a></li>
+        <li><a href="javascript:window.setLitterFilter('JackInTheBox');">Jack in the Box</a></li>
+        <li><a href="javascript:window.setLitterFilter('AppleAndEve');">Apple and Eve</a></li>
+      </ul>
+    </div>
+    <!-- Single button -->
+    <div class="btn-group pull-left" style="margin-left: 10px; margin-top: 25px;">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <span id="dropdown_range">Since: All Time</span> <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="javascript:window.setLitterSince('All Time');">All Time</a></li>
+        <li class="divider"></li>
+        <li><a href="javascript:window.setLitterSince('Last Hour');">Last Hour</a></li>
+        <li><a href="javascript:window.setLitterSince('Last Day');">Last Day</a></li>
+        <li><a href="javascript:window.setLitterSince('Last Week');">Last Week</a></li>
+        <li><a href="javascript:window.setLitterSince('Last Month');">Last Month</a></li>
+      </ul>
     </div>
 </div>
 <div id="alert-box" style="position: absolute; top: 50%; left: 50%;">&nbsp;</div>

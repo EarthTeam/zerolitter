@@ -1,3 +1,4 @@
 select 		* 
 from 		bagsintrees.photos 
-order by 	created desc;
+order by 	created desc
+limit 100;

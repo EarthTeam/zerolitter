@@ -1,14 +1,15 @@
 <div id="page-recent" ng-controller="topTaggersController">
     <br/>
-    <h4>Top Bag Taggers</h4>
-    <div class="thick-hr"></div>
     <div width="100%" class="top-taggers-list">
         <div ng-repeat="user in topTaggers" class="row alternating-color-row" ng-click="goToUser(user)">
                 <a href="/#/user/{{user.id}}"><img ng-src="{{user.profilePicture}}" class="pull-left user-photo" style="margin-right:5px;"></a>
-        
+                    <div style="width: 300px; display: inline-block; margin-top: 17px;">
                     <a href="/#/user/{{user.id}}">{{user.name}}</a>
-                    <br/>
-                    {{user.tagCount}} Bag<span ng-if="user.tagCount > 1">s</span> Tagged
+                    </div>
+                    <br>
+                    <div style="width: 200px; display: inline-block;">
+                    <span style="font-size: 30px; font-weight: bold;">{{user.tagCount}}</span>
+                </div>
             
         </div>
     </div>
