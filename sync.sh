@@ -1,0 +1,1 @@
+rsync -ravze "ssh -i earthteam.pem" . ec2-user@zerolitter.org:~/bagsintrees/
